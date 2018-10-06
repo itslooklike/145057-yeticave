@@ -1,10 +1,3 @@
-<?php
-$endings = ['день', 'дня', 'дней'];
-$fmt = require 'config/getNumEnding.php';
-$time_left = strtotime($finish_date) - time();
-$days_left = floor($time_left / 86400);
-?>
-
 <li class="lots__item lot">
     <div class="lot__image">
         <img src="<?=$image_url;?>" width="350" height="260" alt="Сноуборд">
@@ -17,7 +10,7 @@ $days_left = floor($time_left / 86400);
                 <span class="lot__amount">Стартовая цена</span>
                 <span class="lot__cost"><?=sum_format($start_price);?></span>
             </div>
-            <div class="lot__timer timer"><?=$days_left > 0 ? "{$days_left} {$fmt($days_left, $endings)} " : '';?><?=strftime('%T', $time_left);?></div>
+            <div class="lot__timer timer"><?=$timer;?></div>
         </div>
     </div>
 </li>

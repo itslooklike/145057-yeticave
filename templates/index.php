@@ -19,7 +19,7 @@
     <ul class="lots__list">
 
     <?php foreach ($lots_list as $value): ?>
-        <?=include_template('_item-list.php', $value);?>
+        <?=include_template('../_item-list.php', $value);?>
     <?php endforeach;?>
 
     </ul>

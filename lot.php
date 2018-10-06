@@ -3,7 +3,7 @@ require_once 'config/init.php';
 
 $sql_connect = require_once 'config/sql_connect.php';
 $queries = require_once 'config/queries.php';
-$fmt = require 'config/getNumEnding.php';
+$calc_lot_time = require_once 'config/calc_lot_time.php';
 
 $lot_id = intval($_GET['id']);
 $lot_query = mysqli_query($sql_connect, $queries['get_lot']($lot_id));
@@ -27,22 +27,12 @@ $menu_list = mysqli_fetch_all($categories, MYSQLI_ASSOC);
 $bets_query = mysqli_query($sql_connect, $queries['get_bets']($lot_id));
 $bets = mysqli_fetch_all($bets_query, MYSQLI_ASSOC);
 
-$time_left = strtotime($lot['finish_date']) - time();
-$days_left = floor($time_left / 86400);
-
-$timer = strftime('%T', $time_left);
-
-if ($days_left) {
-    $endings = ['день', 'дня', 'дней'];
-    $timer = $days_left . ' ' . $fmt($days_left, $endings) . ' ' . $timer;
-}
-
 $page_content = include_template('lot.php', [
     'lot' => $lot,
     'bets' => $bets,
     'errors' => $_SESSION['auth']['bet']['errors'] ?? false,
     'answers' => $_SESSION['auth']['bet']['answers'] ?? false,
-    'timer' => $timer,
+    'timer' => $calc_lot_time($lot['finish_date']),
 ]);
 
 $layout_content = include_template('layout.php', [

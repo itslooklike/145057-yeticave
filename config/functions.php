@@ -10,7 +10,7 @@ function sum_format($sum)
 
 function include_template($path, $data = [])
 {
-    $template_path = 'templates/' . $path;
+    $template_path = realpath('templates/' . $path);
 
     if (!file_exists($template_path)) {
         return '';
