@@ -1,5 +1,5 @@
 <section class="lot-item container">
-  <h2><?=$lot['name'];?></h2>
+  <h2><?=strip_tags($lot['name']);?></h2>
   <div class="lot-item__content">
     <div class="lot-item__left">
       <div class="lot-item__image">
@@ -8,7 +8,7 @@
       <p class="lot-item__category">Категория:
         <span><?=$lot['category'];?></span>
       </p>
-      <p class="lot-item__description"><?=$lot['description'];?></p>
+      <p class="lot-item__description"><?=htmlspecialchars($lot['description']);?></p>
     </div>
     <div class="lot-item__right">
       <div class="lot-item__state">
