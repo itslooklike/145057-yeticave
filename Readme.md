@@ -1,7 +1,6 @@
 # Личный проект «YetiCave»
 
 * Студент: [Алексей Масалов](https://up.htmlacademy.ru/php/5/user/145057).
-* Наставник: [Глеб Цырульников](https://htmlacademy.ru/profile/id492663).
 
 ---
 

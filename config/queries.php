@@ -13,7 +13,7 @@ return (function () {
 
     function get_actual_lots($search_word = false)
     {
-        $search = $search_word ? ' AND MATCH(lots.name, lots.description) AGAINST(' . $search_word . ')' : '';
+        $search = $search_word ? ' AND MATCH(lots.name, lots.description) AGAINST("' . $search_word . '")' : '';
 
         return "SELECT
             lots.id,
