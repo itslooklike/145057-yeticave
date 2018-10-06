@@ -1,10 +1,3 @@
-<?php
-$endings = ['день', 'дня', 'дней'];
-$fmt = require 'config/getNumEnding.php';
-$time_left = strtotime($lot['finish_date']) - time();
-$days_left = floor($time_left / 86400);
-?>
-
 <section class="lot-item container">
   <h2><?=$lot['name'];?></h2>
   <div class="lot-item__content">
@@ -19,7 +12,7 @@ $days_left = floor($time_left / 86400);
     </div>
     <div class="lot-item__right">
       <div class="lot-item__state">
-        <div class="lot-item__timer timer"><?=$days_left > 0 ? "{$days_left} {$fmt($days_left, $endings)} " : '';?><?=strftime('%T', $time_left);?></div>
+        <div class="lot-item__timer timer"><?=$timer;?></div>
         <div class="lot-item__cost-state">
           <div class="lot-item__rate">
             <span class="lot-item__amount">Текущая цена</span>
