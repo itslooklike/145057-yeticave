@@ -3,6 +3,7 @@ require_once 'config/init.php';
 
 if (!isset($_SESSION['auth'])) {
     http_response_code(403);
+    header('Location: index.php');
     exit();
 }
 

@@ -24,7 +24,7 @@
     <label for="password">Пароль*</label>
     <input
         id="password"
-        type="text"
+        type="password"
         name="password"
         placeholder="Введите пароль"
     >
